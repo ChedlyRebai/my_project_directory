@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Authors List</title>
+</head>
+<body>
+    <h1>Authors List</h1>
+    {% if authors is empty %}
+        <p>No authors available.</p>
+    {% else %}
+        <ul>
+            {% for author in authors %}
+                <li>
+                    <img src="{{ author.picture }}" alt="{{ author.username }}">
+                    <strong>{{ author.username|upper }}</strong> - {{ author.email }} - Books: {{ author.nb_books }}
+                    <a href="{{ path('author_details', {id: author.id}) }}">Details</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <p>Total Authors: {{ authors|length }}</p>
+        <p>Total Books: {{ authors|reduce((carry, author) => carry + author.nb_books, 0) }}</p>
+    {% endif %}
+</body>
+</html>
