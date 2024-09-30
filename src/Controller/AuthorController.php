@@ -9,10 +9,10 @@ use Symfony\Component\Routing\Attribute\Route;
 class AuthorController extends AbstractController
 {
     #[Route('/author', name: 'app_author')]
-    public function index(): Response
-    {
+    public function index(string $name): Response
+    { // Define the variable
         return $this->render('author/index.html.twig', [
-            'controller_name' => 'AuthorController',
+            'name'=> $name
         ]);
     }
 }
