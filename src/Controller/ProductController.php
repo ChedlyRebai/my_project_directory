@@ -269,6 +269,6 @@ class ProductController extends AbstractController
 
         return new JsonResponse($productData); // Using JsonResponse for structured output
     }
-    
+
 }
 ?>
